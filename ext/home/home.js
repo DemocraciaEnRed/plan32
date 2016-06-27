@@ -6,7 +6,6 @@ import template from './template.jade'
 
 page('/', (ctx, next) => {
   let view = domRender(template)
-
   dom('#content').empty().append(view)
 
   bus.emit('page:render')
