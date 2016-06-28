@@ -1,12 +1,17 @@
 header.custom-header
   img.transparencia(src="ext/logo-transparencia.svg")
-  ul
-    li Plan 32
-    li Quiero firmar
-    li.logo
+  ul.right
+    li
+      a(href="/plan32") Plan 32
+    li
+      a(href="/quiero-firmar") Quiero firmar
+  .logo
       img(src="ext/logo-plan32.svg")
-    li Proyecto de ley
-    li Noticias
+  ul.left
+    li
+      a(href="/proyecto") Proyecto de ley
+    li
+      a(href="/noticias") Noticias
   img.transparencia(src="ext/logo-transparencia.svg")
 article#banner
   img(src="ext/banner.png")
@@ -40,26 +45,18 @@ article#propuestas
       h2 Un mejor<br>Sistema Electoral
       button Ver propuestas
 article#map
-  div
+  iframe(src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d44146.10354427051!2d-77.09604222698916!3d-12.043441576125797!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1467134748282" frameborder="0" style="border:0" allowfullscreen)
+  div#quiero
     h2 Quiero firmar
     p Necesitamos más de 67,000 firmas para que este proyecto sea debatido en el Congreso.
     p.exclam ¡Necesitamos tu firma!
     button Ver más
-  gmap
-article#noticias
-  h1 Noticias
-  p Es un hecho establecido hace demasiado<br>se distraerá con el contenido del texto.
-  div
-    div
-      h2 Noticia numero uno
-      p Now that there is the Tec-9, a crappyspray gun from South Miami. Thisgun is advertised as the most popular gun in American crime.
-      img(src="ext/noticia.png")
 footer
-  img(src="ext/logo-plan32.svg")
-  p es un proyecto de
-  img(src="ext/logo-transparencia.svg")
+  img.logo(src="ext/logo-plan32.svg")
+  p.proyde es un proyecto de
+  img.transparencia(src="ext/logo-transparencia.svg")
   div
     p Tecnología de
-    img(src="ext/logo-DER-negro.png")
+    img.der(src="ext/logo-DER-negro.png")
   a Terminos y Condiciones
-  p ¿Dudas, sugerencias? escribinos a <a href="#">plan32@plan32.org</a>
+  p.dudas ¿Dudas, sugerencias? escribinos a <a href="#">plan32@plan32.org</a>
