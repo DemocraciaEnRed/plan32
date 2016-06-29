@@ -32,12 +32,12 @@
     display block
     margin 0
     background #fff
-    position fixed
+    position absolute
     z-index 99
     width 100%
     height auto
     left 0
-    top 50px
+    top 100%
     list-style none
     font-size 14px
     text-transform uppercase
@@ -74,8 +74,9 @@
     margin 0
     left 0
     height 45px
-    position fixed
-    top 2px
+    position absolute
+    bottom 100%
+    bottom unquote('calc(100% + 2px)')
     width 100%
     img
       height 100%
@@ -117,6 +118,7 @@
         margin-bottom 0
       .logo
         position relative
+        top 0
         height 60px
         width auto
       .transparencia:last-child

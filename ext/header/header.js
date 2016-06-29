@@ -7,5 +7,7 @@ let view = dom(domRender(template))
 view.insertAfter('.app-header')
 
 view.on('click', 'a[href]', function () {
-  view.find('#mobileMenuChk')[0].checked = false
+  setTimeout(function () {
+    view.find('#mobileMenuChk')[0].checked = false
+  }, 0)
 })
