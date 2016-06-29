@@ -1,6 +1,5 @@
 import bus from 'bus'
 import page from 'page'
-import dom from 'component-dom'
 import forumRouter from '../../lib/forum-router/forum-router'
 import { findForum } from '../../lib/forum-middlewares/forum-middlewares'
 import { findTopics, clearTopicStore } from '../../lib/topic-middlewares/topic-middlewares'
@@ -32,18 +31,19 @@ function exit (ctx, next) {
 }
 
 function render (ctx) {
-  new View({ // eslint-disable-line no-new
-    container: ctx.content,
+  const view = new View({ // eslint-disable-line no-new
     locals: {
       topics: topicFilter.filter(ctx.topics),
       forum: ctx.forum
     }
   })
 
+  layout.set(view.el)
+
   bus.emit('page:render')
 }
 
-class View extends view('appendable') {
+class View extends view() {
   constructor (options = {}) {
     options.template = template
     super(options)

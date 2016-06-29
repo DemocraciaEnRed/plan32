@@ -3,12 +3,10 @@ import bus from 'bus'
 import { domRender } from '../../lib/render/render'
 import * as layout from '../layout/layout'
 import template from './template.jade'
-import footer from '../footer/footer'
 
 page('/', layout.load, (ctx, next) => {
   let view = domRender(template)
   layout.set(view)
-  footer()
   bus.emit('page:render')
 })
 
