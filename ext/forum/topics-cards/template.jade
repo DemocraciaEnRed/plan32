@@ -1,0 +1,9 @@
+- if (topics && topics.length)
+  .topics-cards
+    each topic in topics
+      a.topic-container(href=topic.url)
+        .topic-card
+          .title= topic.mediaTitle
+          .pic-spacer
+          - if (topic.coverUrl)
+            .pic(style='background-image:url(' + topic.coverUrl + ')')

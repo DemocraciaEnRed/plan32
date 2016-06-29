@@ -1,1 +1,7 @@
-h1= forum.title
+.ext-forum.container
+  h1= forum.title
+  - if (forum.summary)
+    p.summary= forum.sumamry
+
+  include ./topics-cards/template
+
