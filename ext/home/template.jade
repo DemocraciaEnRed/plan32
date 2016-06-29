@@ -1,10 +1,10 @@
 .ext-home
   article#banner
   article#intro
-    h1 ¿Que es Plan 32?
-    div
-      img#video(src="ext/video.png")
-      div
+    h1 ¿Qué es Plan 32?
+    .content
+      img.content-item(src="ext/video.png")
+      .content-item.text
         p
           | Plan32 es un proyecto de la Asociación Civil
           | Transparencia que quiere contribuir al fortalecimiento
@@ -13,26 +13,26 @@
           | de que, pese a los avances que ha alcanzado el país
           | en los últimos años, las instituciones públicas se han
           | debilitado profundamente.
-        a.button(href="/que-es") Sobre Plan 32
+        a.p32-btn(href="/que-es") Sobre Plan 32
   article#propuestas
     h1 Propuestas de reforma
-    div#boxes
-      div#Congreso.box
+    #boxes
+      #Congreso.box
         h2 Un mejor Congreso
-        button Ver propuestas
-      div#Justicia.box
+        a.p32-btn(href="#") Ver propuestas
+      #Justicia.box
         h2 Un mejor<br>Sistema de Justicia
-        button Ver propuestas
-      div#Publica.box
+        a.p32-btn(href="#") Ver propuestas
+      #Publica.box
         h2 Una mejor<br>Administración Pública
-        button Ver propuestas
-      div#Electoral.box
+        a.p32-btn(href="#") Ver propuestas
+      #Electoral.box
         h2 Un mejor<br>Sistema Electoral
-        button Ver propuestas
+        a.p32-btn(href="#") Ver propuestas
   article#map
     include ../quiero-firmar/map
-    div#quiero
+    #quiero
       h2 Quiero firmar
       p Necesitamos más de 67,000 firmas para que este proyecto sea debatido en el Congreso.
       p.exclam ¡Necesitamos tu firma!
-      a.button(href="/quiero-firmar") Ver más
+      a.p32-btn(href="/quiero-firmar") Ver más
