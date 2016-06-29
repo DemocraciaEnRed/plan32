@@ -10,4 +10,4 @@ page('/quiero-firmar', layout.load, (ctx, next) => {
   bus.emit('page:render')
 })
 
-page.exit('/', layout.unload)
+page.exit('/quiero-firmar', layout.unload)

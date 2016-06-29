@@ -1,5 +1,5 @@
+import '../header/header'
 import '../home/home'
 import '../que-es/que-es'
 import '../quiero-firmar/quiero-firmar'
-import '../header/header'
-import '../footer/footer'
+import '../forum/forum'

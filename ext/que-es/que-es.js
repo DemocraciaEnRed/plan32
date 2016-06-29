@@ -10,4 +10,4 @@ page('/que-es', layout.load, (ctx, next) => {
   bus.emit('page:render')
 })
 
-page.exit('/', layout.unload)
+page.exit('/que-es', layout.unload)
