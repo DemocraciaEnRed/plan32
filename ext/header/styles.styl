@@ -1,4 +1,4 @@
-header.custom-header
+.custom-header
   display flex
   justify-content center
   align-items center
@@ -9,13 +9,16 @@ header.custom-header
   padding 0 20px
   box-sizing border-box
   position relative
+
   #mobileMenuBtn
-    width 26px
+    width 56px
     height 44px
     position absolute
-    left spacing
-    padding 15px 0 0
+    left 0
+    padding 16px 15px 0
     z-index 999
+    cursor pointer
+
     .bar-icon
       background #333
       height 3px
@@ -24,8 +27,10 @@ header.custom-header
   #mobileMenuChk:checked
     & ~ ul li
       display block
+
   ul
     display block
+    margin 0
     background #fff
     position fixed
     z-index 99
@@ -38,24 +43,32 @@ header.custom-header
     text-transform uppercase
     text-align center
     padding 0
+
     li
       display none
       margin 13px 20px 13px
       color #6d6e70
+
       a
         color #6d6e70
         font-weight 400
         letter-spacing 0.1px
+
+    .link
+      margin 0 20px
+
+      &:hover
+        a
+          color #333
+
+      a
+        display block
+        padding 30px 0 20px
+
   .transparencia
     width 65px
     display none
-  // .transparencia:last-child
-  //   margin 0
-  //   right 10px
-  //   height 45px
-  //   position fixed
-  //   top 2px
-  //   display block
+
   .logo
     display block
     margin 0
@@ -68,11 +81,11 @@ header.custom-header
       height 100%
 
 @media (min-width: 1100px)
-  header.custom-header
+  .custom-header
     padding 0 180px
 
 @media (min-width: 800px)
-  header.custom-header
+  .custom-header
     justify-content space-between
     .transparencia
       display block
@@ -86,10 +99,12 @@ header.custom-header
       padding 0 0 0 17px
 
 @media (min-width: 620px)
-  header.custom-header
+  .custom-header
     height 109px
+
     #mobileMenuBtn
       display none
+
     ul
       display flex
       align-items center
@@ -108,5 +123,3 @@ header.custom-header
         position relative
         top 0
         height auto
-  section.site-content
-    margin-top 109px
