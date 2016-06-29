@@ -2,7 +2,8 @@ import dom from 'component-dom'
 import { domRender } from '../../lib/render/render'
 import template from './template.jade'
 
+const view = domRender(template)
+
 export default function () {
-  let view = domRender(template)
-  dom(view).appendTo('#content')
+  dom('#content').append(view)
 }

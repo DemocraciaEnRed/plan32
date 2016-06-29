@@ -23,3 +23,20 @@ h6
   &:hover
     color #fff
     background-color #333
+
+.with-two-cols
+  display flex
+  flex-wrap wrap
+  align-items top
+  justify-content center
+  margin-bottom 20px
+
+  & > *
+    width 100%
+    max-width 50%
+    min-width 320px
+    padding 0 20px
+    margin-bottom 20px
+
+    @media (max-width: 960px)
+      max-width 100%
