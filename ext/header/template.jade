@@ -1,4 +1,9 @@
 header.custom-header
+  label(id='mobileMenuBtn', for="mobileMenuChk")
+    span.bar-icon
+    span.bar-icon
+    span.bar-icon
+  input#mobileMenuChk(type="checkbox", style="display:none;")
   img.transparencia(src="ext/logo-transparencia.svg")
   ul
     li
@@ -6,7 +11,8 @@ header.custom-header
     li
       a(href="/quiero-firmar") Quiero firmar
     li.logo
-      img(src="ext/logo-plan32.svg")
+      a(href="/")
+        img(src="ext/logo-plan32.svg")
     li
       a(href="/proyecto") Proyecto de ley
     li

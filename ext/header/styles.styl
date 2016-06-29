@@ -3,29 +3,52 @@ header.app-header
 .snap-drawers
   display none
 section.site-content
-    margin-top 109px
+  margin-top 50px
 section#content
   background #EAEAEA!important
 header.custom-header
   display flex
-  justify-content space-between
+  justify-content center
   align-items center
   position fixed
   width 100%
   top 0
-  height 109px
-  padding 0 180px
+  height 50px
+  padding 0 20px
   box-sizing border-box
+  position relative
+  #mobileMenuBtn
+    width 26px
+    height 44px
+    position absolute
+    left spacing
+    padding 15px 0 0
+    z-index 999
+    .bar-icon
+      background #333
+      height 3px
+      margin-bottom 5px
+      display block
+  #mobileMenuChk:checked 
+    & ~ ul li
+      display block
   ul
-    display flex
-    align-items center
+    display block
+    background #fff
+    position fixed
+    z-index 99
+    width 100%
+    height auto
+    left 0
+    top 50px
     list-style none
-    text-transform uppercase
     font-size 14px
-    height 100%
-    padding 0 0 0 17px
+    text-transform uppercase
+    text-align center
+    padding 0
     li
-      margin 13px 20px 0
+      display none
+      margin 13px 20px 13px
       color #6d6e70
       a
         color #6d6e70
@@ -33,7 +56,65 @@ header.custom-header
         letter-spacing 0.1px
   .transparencia
     width 65px
+    display none
+  // .transparencia:last-child
+  //   margin 0
+  //   right 10px
+  //   height 45px
+  //   position fixed
+  //   top 2px
+  //   display block
   .logo
-    height 60px
+    display block
+    margin 0
+    left 0
+    height 45px
+    position fixed
+    top 2px
+    width 100%
     img
       height 100%
+
+@media (min-width: 1100px)
+  header.custom-header
+    padding 0 180px
+
+@media (min-width: 800px)
+  header.custom-header
+    justify-content space-between
+    .transparencia
+      display block
+    .transparencia:last-child
+      margin 0
+      left 0
+      height auto
+      position relative
+      top 0
+    ul
+      padding 0 0 0 17px
+
+@media (min-width: 620px)
+  header.custom-header
+    height 109px
+    #mobileMenuBtn
+      display none
+    ul
+      display flex
+      align-items center
+      height 100%
+      position relative
+      top 0
+      width auto
+      li
+        display block
+        margin-bottom 0
+      .logo
+        position relative
+        height 60px
+        width auto
+      .transparencia:last-child
+        position relative
+        top 0
+        height auto
+  section.site-content
+    margin-top 109px
