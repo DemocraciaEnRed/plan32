@@ -339,6 +339,7 @@
   "sorts.newest-first": "Más recientes",
   "sorts.oldest-first": "Más antiguos",
   "sorts.recently-updated": "Con actividad reciente",
+  "sorts.by-title": "Por título",
   "validators.checked": "Elegir una opción",
   "validators.input.not-exists": "No existe el elemento {name}",
   "validators.invalid": "No válido",
