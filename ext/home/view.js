@@ -1,5 +1,5 @@
 import view from '../../lib/view/mixin'
-import template from './noti-card/template.jade'
+import template from '../topic-cards/template.jade'
 import Flickity from 'flickity'
 
 export default class NoticiasView extends view('appendable', 'withEvents') {
