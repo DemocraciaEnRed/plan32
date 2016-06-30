@@ -10,7 +10,7 @@ page('/', layout.load, (ctx, next) => {
   let view = domRender(template)
   layout.set(view)
   bus.emit('page:render')
-  topicStore.findAll({forum: '5773d0dcb6567110006020cc'}) // noticias forum id 5774190dbf53d71000605c36
+  topicStore.findAll({forum: '5774190dbf53d71000605c36'})
     .then(topics => {
       if (!topics) return console.log('no noticias')
       new NoticiasView({ // eslint-disable-line no-new
