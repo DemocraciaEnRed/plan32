@@ -1,13 +1,13 @@
 - var formatNumber = function (v) { return (v < 100 ? v : '99+') + ' '; };
 
 .sidebar-filter
-  .sidebar-filter-status.btn-group.btn-group-justified
+  .sidebar-filter-status.btn-group.btn-group-justified.hide
     a.btn.btn-default(data-status='open', class=(filter.status === 'open' ? 'active' : ''))
       = formatNumber(openCount) + t('sidebar.open')
     a.btn.btn-default(data-status='closed', class=(filter.status === 'closed' ? 'active' : ''))
       = formatNumber(closedCount) + t('sidebar.closed')
 
-  .sidebar-filter-sort.btn-group
+  .sidebar-filter-sort.btn-group.hide
     button.btn.btn-default.current-department(type='button', data-sort-btn)
       span.pull-left= t(currentSort.label)
       span.caret
@@ -17,7 +17,7 @@
         li(data-sort=name, class= active ? 'active' : '')
           a(href='#')= t(sort.label)
 
-  .sidebar-filter-hide-voted(class=user.logged() ? '' : 'hide')
+  .sidebar-filter-hide-voted.hide(class=user.logged() ? '' : 'hide')
     input#hide-voted(type='checkbox',
       name='hide-voted',
       checked= filter.hideVoted,
