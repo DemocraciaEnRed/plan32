@@ -8,12 +8,10 @@ export default class NoticiasView extends view('appendable', 'withEvents') {
     super(options)
     this.flickity = undefined
     this.switchOn()
-    debugger
   }
 
   switchOn () {
     if (this.flickity) return
-    debugger
     this.flickity = new Flickity('#noticias-slider', // eslint-disable-line no-new
       {
         wrapAround: true,
