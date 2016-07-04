@@ -1,9 +1,31 @@
 .ext-forum
   h1
     text-align center
-
+    font-size 34px
+    margin-top 42px
+    margin-bottom 15px
   .summary
-    margin-left auto
-    margin-right auto
+    margin 0 auto 44px
     max-width 600px
     text-align center
+    line-height 1.2
+    font-weight 100
+    font-size 22px
+#video
+  position relative
+  max-height unquote('calc(100vh - 120px)')
+  margin-bottom 37px
+  
+  &:before
+    display block
+    content ''
+    padding-top 56.25% /* 16:9 */
+    max-height 100%
+
+  iframe 
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    border none

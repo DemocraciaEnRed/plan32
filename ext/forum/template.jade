@@ -1,6 +1,9 @@
-.ext-forum.container
-  h1= forum.title
-  - if (forum.summary)
-    p.summary= forum.sumamry
-
-  include ../topics-cards/template
+.ext-forum
+  .container
+    h1= forum.title
+    p.summary= forum.summary
+  - if(forum.extra && forum.extra.youtubeVideo)
+    article#video
+      iframe(src=forum.extra.youtubeVideo)
+  .container
+    include ../topics-cards/template
