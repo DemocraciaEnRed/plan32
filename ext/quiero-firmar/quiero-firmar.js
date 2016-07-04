@@ -5,7 +5,7 @@ import * as layout from '../layout/layout'
 import template from './template.jade'
 
 page('/quiero-firmar', layout.load, (ctx, next) => {
-  let view = domRender(template)
+  let view = domRender(template, {hideMoreInfo: true})
   layout.set(view)
   bus.emit('page:render')
 })

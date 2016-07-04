@@ -3,6 +3,7 @@ import bus from 'bus'
 import { domRender } from '../../lib/render/render'
 import * as layout from '../layout/layout'
 import template from './template.jade'
+import forumStore from '../../lib/forum-store/forum-store'
 import topicStore from '../../lib/topic-store/topic-store'
 import NoticiasView from './view.js'
 
@@ -10,8 +11,9 @@ page('/', layout.load, (ctx, next) => {
   let view = domRender(template)
   layout.set(view)
   bus.emit('page:render')
-  topicStore.findAll({forum: '5774190dbf53d71000605c36'})
-    .then(topics => {
+  forumStore.findOneByName('noticias')
+    .then((forum) => topicStore.findAll({forum: forum.id}))
+    .then((topics) => {
       if (!topics) return console.log('no noticias')
       new NoticiasView({ // eslint-disable-line no-new
         container: document.querySelector('#noticias-slider'),
@@ -20,7 +22,7 @@ page('/', layout.load, (ctx, next) => {
         }
       })
     })
-    .catch(err => {
+    .catch((err) => {
       console.error('Found Error %s', err)
     })
 })
