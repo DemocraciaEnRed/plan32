@@ -14,8 +14,7 @@ export default class NoticiasView extends view('appendable', 'withEvents') {
     if (this.flickity) return
     this.flickity = new Flickity('#noticias-slider', // eslint-disable-line no-new
       {
-        wrapAround: true,
-        contain: true,
+        cellAlign: 'left',
         pageDots: false
       })
   }
