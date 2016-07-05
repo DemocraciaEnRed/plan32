@@ -18,7 +18,9 @@ page('/', layout.load, (ctx, next) => {
       new NoticiasView({ // eslint-disable-line no-new
         container: document.querySelector('#noticias-slider'),
         locals: {
-          topics: topics
+          topics: topics.sort(function (a, b) {
+            return new Date(b.publishedAt) - new Date(a.publishedAt)
+          })
         }
       })
     })
