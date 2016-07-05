@@ -1,6 +1,9 @@
 each topic in topics
   a.topic-container(href=topic.url)
     .topic-card
+      - publishedAt = new Date(topic.publishedAt)
+      - var publishedAtTime = moment(publishedAt).locale('es').format('DD/MM/YYYY')
+      .fecha= publishedAtTime
       .title= topic.mediaTitle
       - if (topic.coverUrl)
         .pic(style='background-image:url(' + topic.coverUrl + ')')
