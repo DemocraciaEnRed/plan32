@@ -1,16 +1,24 @@
 import page from 'page'
 import bus from 'bus'
 import { domRender } from '../../lib/render/render'
-import * as layout from '../layout/layout'
-import template from './template.jade'
 import forumStore from '../../lib/forum-store/forum-store'
 import topicStore from '../../lib/topic-store/topic-store'
-import NoticiasView from './view.js'
+import * as layout from '../layout/layout'
+import { loadMap } from '../quiero-firmar/map'
+import template from './template.jade'
+import NoticiasView from './view'
 
 page('/', layout.load, (ctx, next) => {
   let view = domRender(template)
   layout.set(view)
+  loadMap()
+  loadNews()
   bus.emit('page:render')
+})
+
+page.exit('/', layout.unload)
+
+function loadNews () {
   forumStore.findOneByName('noticias')
     .then((forum) => topicStore.findAll({forum: forum.id}))
     .then((topics) => {
@@ -27,6 +35,4 @@ page('/', layout.load, (ctx, next) => {
     .catch((err) => {
       console.error('Found Error %s', err)
     })
-})
-
-page.exit('/', layout.unload)
+}

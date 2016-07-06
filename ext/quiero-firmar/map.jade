@@ -1,9 +1,9 @@
-.quiero-firmar-map
+.quiero-firmar-map(data-map).loading
+  .overlay
   .map-container
-    .overlay(data-show-map)
-    iframe(src="https://mapsengine.google.com/map/embed?mid=1U1zc3m7kuum6AIcIL6uSNbO51Mc&language=#{config.locale}" frameborder="0" style="border:0", allowfullscreen, scrolling="no")
+    iframe(src="https://mapsengine.google.com/map/embed?mid=1U1zc3m7kuum6AIcIL6uSNbO51Mc&language=#{config.locale}&zoom=0" frameborder="0" style="border:0", allowfullscreen, scrolling="no")
   .quiero-firmar
     h2 Quiero firmar
     p Necesitamos más de 67,000 firmas para que este proyecto sea debatido en el Congreso.
     p: b ¡Necesitamos tu firma!
-    a.p32-btn(href="/quiero-firmar", data-show-map) Ver
+    button.p32-btn(data-map-activate) Ver
