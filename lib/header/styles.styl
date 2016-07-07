@@ -26,7 +26,7 @@ header.app-header
   top 0
   left 0
   right 0
-  height header_height
+  height 80px
   background #64476e
   color white
   padding-left spacing
@@ -42,7 +42,7 @@ header.app-header
     height 44px
     position absolute
     left spacing
-    padding 10px 0
+    padding 15px 0
     display none
     .bar-icon
       height 3px
@@ -55,10 +55,11 @@ header.app-header
        color white
 
   h1
-    display inline-block
-    width 300px
+    display inline-flex
+    align-items center
     font-size 12px
-    margin-top 12px
+    margin 0
+    height 100%
     .logo
       height 40px
       display inline-block
@@ -71,13 +72,11 @@ header.app-header
     display inline-block
 
   .user-nav
-    display inline-block
+    display inline-flex
     float right
     list-style none
-    margin-right spacing
-    position absolute
-    right 0
-    top 0px
+    align-items center
+    height 100%
 
     .user
       float right
@@ -85,7 +84,6 @@ header.app-header
     .login
       padding 6px 12px
       display inline-block
-      margin-top 15px
       line-height 1.8
 
       i
@@ -110,3 +108,34 @@ vendors(prop, args, fn = null)
 
 .headroom--unpinned
   vendors(transform, -100%, translateY)
+
+#navMenu
+  margin 0
+  padding 0
+  list-style none
+  font-size 14px
+  text-transform uppercase
+  font-family 'Roboto', sans-serif
+  li.link
+    display inline-block
+    margin-left 20px
+  a
+    padding 30px 0 20px
+    color #6d6e70
+    font-weight 400
+
+@media screen and (max-width: 700px)
+  header.app-header
+    height 50px
+    #navMenu
+      display none
+    .user-nav
+      display inline-block
+      float right
+      list-style none
+      margin-right spacing
+      position absolute
+      right 0
+      top 0px
+      .login
+        margin-top 10px
