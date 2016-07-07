@@ -91,6 +91,11 @@ header.app-header
         font-size 20px
       &:hover
         text-decoration none
+    
+    .user-badge .btn, .notifications-badge .btn
+        display flex
+        align-items center
+        height 80px
 
 vendors(prop, args, fn = null)
   val = fn == null ? args : fn + '(' + args + ')'
@@ -139,3 +144,8 @@ vendors(prop, args, fn = null)
       top 0px
       .login
         margin-top 10px
+      .user-badge .btn, .notifications-badge .btn
+        padding 9px 12px
+        height 50px
+    img.logo-image
+      margin-top 9px
