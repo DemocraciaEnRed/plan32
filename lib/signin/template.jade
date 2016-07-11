@@ -3,7 +3,7 @@
     .title-page
       .circle
         i.icon-signin
-      h1=t('signin.login-to')
+      h1 #{t('signin.login-to') + " " + t('common.app-name')}
 
     form.form(action="/signin", method="post", role="form", autovalidate='autovalidate', autosubmit='autosubmit')
       ul.form-errors
