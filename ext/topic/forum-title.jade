@@ -1,3 +1,17 @@
 .topic-forum-title
+  .filter
+    .sidebar-filter-sort.btn-group
+      button.btn.btn-default.current-department(type='button')
+        span.pull-left Cambiar de eje..
+        span.caret
+      ul.dropdown-list
+        li
+          a(href='/funcionamiento-del-congreso') Congreso
+        li
+          a(href='/sistema-de-justicia') Sistema de Justicia
+        li
+          a(href='/administracion-publica') Administración Pública
+        li
+          a(href='/proceso-de-eleccion') Sistema Electoral
   a(href=forum.url)
     h2= forum.title

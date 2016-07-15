@@ -19,3 +19,52 @@
     font-size 24px
     margin 0
     padding-top 10px
+
+  .sidebar-filter-sort
+    position relative
+    margin-bottom 10px
+    width 100%
+    
+    .current-department
+      width 100%
+      background-color #fff
+
+    &.active
+      .dropdown-list
+        display block
+
+    .dropdown-list
+      z-index 1000
+      display none
+      position absolute
+      top 100%
+      left 0
+      margin 2px 0 0
+      padding 5px 0
+      border 1px solid rgba(0,0,0,.15)
+      border-radius 3px
+      min-width 160px
+      width 100%
+      font-size 14px
+      text-align left
+      list-style none
+      box-shadow 0 6px 12px rgba(0,0,0,.175)
+      background-color #fff
+
+      li
+        &.active a
+          color #fff
+          background-color #337ab7
+      a
+        display block
+        padding 7px 14px 4px
+        white-space normal
+        font-weight bold
+        text-transform uppercase
+        font-size 12px
+        line-height 1.8
+        color #333
+        text-decoration none
+
+        &:hover
+          background-color rgba(#f1f1f1, .2)

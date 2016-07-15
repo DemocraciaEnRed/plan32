@@ -1,4 +1,5 @@
 import page from 'page'
+import ToggleParent from 'democracyos-toggle-parent'
 import { findForum } from '../../lib/forum-middlewares/forum-middlewares'
 import forumRouter from '../../lib/forum-router/forum-router'
 import { domRender } from '../../lib/render/render'
@@ -9,6 +10,10 @@ const sidebar = document.querySelector('.nav-proposal')
 page(forumRouter('/topic/:id'), findForum, (ctx, next) => {
   ctx.forumTitleView = domRender(forumTitleTemplate, {forum: ctx.forum})
   prependChild(sidebar, ctx.forumTitleView)
+
+  var dropdownBtn = ctx.forumTitleView.querySelector('.current-department')
+  new ToggleParent(dropdownBtn)
+  if (ctx.forum.name === 'noticias') dropdownBtn.className = dropdownBtn.className + ' hide'
   next()
 })
 
