@@ -27,12 +27,10 @@
 
     .meta-information
       p
-        i.icon-time
         - if (proposal.closingAt)
+          i.icon-time
           span.time-ago-label= (closed ? t('common.closed') : t('common.close')) + " "
           span.meta-item.meta-timeago.ago(data-time=proposal.closingAt.toString())
-        - else
-          span.meta-item.meta-timeago= t('proposal-article.unknown-closing-date')
 
     h1=proposal.mediaTitle
     - if (proposal.author)
