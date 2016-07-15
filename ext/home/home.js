@@ -5,8 +5,9 @@ import forumStore from '../../lib/forum-store/forum-store'
 import topicStore from '../../lib/topic-store/topic-store'
 import * as layout from '../layout/layout'
 import { loadMap } from '../quiero-firmar/map'
+import youtubeVideo from '../youtube-video/youtube-video'
 import template from './template.jade'
-import NoticiasView from './view'
+import NoticiasView from './noticias'
 
 page('/', layout.load, (ctx, next) => {
   let view = domRender(template)
@@ -14,9 +15,16 @@ page('/', layout.load, (ctx, next) => {
   loadMap()
   loadNews()
   bus.emit('page:render')
+  loadCoverVideo(view)
 })
 
 page.exit('/', layout.unload)
+
+function loadCoverVideo (view) {
+  window.requestAnimationFrame(function () {
+    youtubeVideo(view.querySelector('[data-youtube-video]'))
+  })
+}
 
 function loadNews () {
   forumStore.findOneByName('noticias')
