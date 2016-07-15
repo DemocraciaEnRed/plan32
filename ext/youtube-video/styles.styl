@@ -1,0 +1,35 @@
+.youtube-video
+  &.loading .video
+    opacity: 0
+    transition-delay: 0
+
+  &:after
+    content ''
+    display block
+    width 100%
+    padding-top 56.25%
+
+  .video
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    pointer-events: none
+    overflow: hidden
+    transition: opacity .3s ease-in 1s
+
+  .video-wrapper
+    position: absolute
+    left: 50%
+    top: 50%
+    width: 100%
+    padding-top: 56.3%
+    transform: unquote('translate(-50%, -50%)')
+
+  iframe
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
