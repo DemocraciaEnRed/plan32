@@ -4,6 +4,7 @@
     p.summary= forum.summary
   - if(forum.extra && forum.extra.youtubeVideo)
     article#video
-      iframe(src=forum.extra.youtubeVideo)
+      .video-wrapper
+        iframe(src=forum.extra.youtubeVideo)
   .container
     include ../topics-cards/template
