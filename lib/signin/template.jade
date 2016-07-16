@@ -3,7 +3,7 @@
     .title-page
       .circle
         i.icon-signin
-      h1 #{t('signin.login-to') + " " + t('common.app-name')}
+      h1= t('signin.login')
       p.infotxt Si quieres comentar y mantenerte informado sobre el desarrollo del proyecto, Regístrate.
 
     form.form(action="/signin", method="post", role="form", autovalidate='autovalidate', autosubmit='autosubmit')
