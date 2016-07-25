@@ -8,6 +8,10 @@
   &.muted .video-mute-btn
     background-image: unquote('url("/ext/youtube-video/muted.png")')
 
+  &:hover
+    .video-mute-btn
+      opacity: 1
+
   &:after
     content ''
     display block
@@ -34,14 +38,17 @@
 
   .video-mute-btn
     position: absolute
-    right: 0
+    left: 50%
     bottom: 0
+    margin-left: -17.5px
     width: 35px
     height: 35px
     cursor: pointer
-    transition: opacity .3s ease-in 1s
+    opacity: 0
+    transition: opacity .3s ease-in
     background-repeat: no-repeat
     background-position: center center
+    background-color: rgba(#000, .6)
     background-image: unquote('url("/ext/youtube-video/unmuted.png")')
 
   iframe
