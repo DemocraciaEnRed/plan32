@@ -31,14 +31,17 @@ function init (container) {
   const video = document.createElement('div')
   const wrapper = document.createElement('div')
   const iframe = document.createElement('div')
+  const muteBtn = document.createElement('div')
 
   video.classList.add('video')
   wrapper.classList.add('video-wrapper')
+  muteBtn.classList.add('video-mute-btn')
 
   video.appendChild(wrapper)
   wrapper.appendChild(iframe)
 
   container.insertBefore(video, container.firstChild)
+  container.appendChild(muteBtn)
 
   window.requestAnimationFrame(function () {
     fit(wrapper, video, {cover: true, watch: true})
@@ -58,7 +61,7 @@ function init (container) {
       playlist: [id]
     },
     events: {
-      onReady: function () { player.mute() },
+      onReady: mute,
       onStateChange: onPlayerStateChange
     }
   })
@@ -83,4 +86,18 @@ function init (container) {
       onStop()
     }
   }
+
+  function mute () {
+    player.mute()
+    container.classList.add('muted')
+  }
+
+  function unmute () {
+    player.unMute()
+    container.classList.remove('muted')
+  }
+
+  muteBtn.addEventListener('click', function () {
+    player.isMuted() ? unmute() : mute()
+  })
 }
