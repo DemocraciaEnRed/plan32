@@ -23,6 +23,7 @@ function init (container) {
   if (!id) throw new Error('[data-youtube-video] param missing.')
 
   container.classList.add('loading')
+  container.classList.add('muted')
 
   if (window.getComputedStyle(container).position === 'static') {
     container.style.position = 'relative'
