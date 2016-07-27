@@ -4,6 +4,8 @@
       .circle
         i.icon-user
       h1= t('signup.with-email')
+      p.infotxt Si quieres comentar y mantenerte informado sobre el desarrollo del proyecto, Regístrate.
+      
     form.form(action='/signup', method="post", role="form", autovalidate='autovalidate', autosubmit='autosubmit')
       - if (reference)
         input(type='hidden', name='reference', value=reference)
