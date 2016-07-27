@@ -3,7 +3,7 @@
     h1= forum.title
     p.summary= forum.summary
   - if(forum.extra && forum.extra.youtubeVideo)
-    article#video
+    .responsive-video-wide
       .video-wrapper
         iframe(src=forum.extra.youtubeVideo)
   .container

@@ -61,3 +61,36 @@ p
     top 0
     width 100%
     height 100%
+
+.responsive-video-wide
+  position relative
+  max-height 500px
+  max-height unquote('calc(90vh - 120px)')
+  margin-bottom 37px
+
+  &.full-height
+    max-height unquote('calc(100vh - 110px)')
+
+    .video-wrapper
+      max-width unquote('calc((100vh - 110px) *  1.778)')
+
+  .video-wrapper
+    position relative
+    max-width 888px
+    max-width unquote('calc((90vh - 120px) *  1.778)')
+    margin 0 auto
+    background-color #222
+
+    &:before
+      display block
+      content ''
+      padding-top 56.25% /* 16:9 */
+      max-height 100%
+
+  iframe
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    border none
