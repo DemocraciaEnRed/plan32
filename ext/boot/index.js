@@ -2,6 +2,8 @@ var express = require('express')
 
 var app = module.exports = express()
 
+require('ext/translations')
+
 app.use(require('ext/letsencrypt'))
 app.use(require('ext/home'))
 app.use(require('ext/que-es'))
