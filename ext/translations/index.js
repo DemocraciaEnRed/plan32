@@ -2,4 +2,4 @@ var merge = require('mout/object/merge')
 var translations = require('lib/translations')
 var overrides = require('./lib/es.json')
 
-merge(translations.es, overrides)
+translations.es = merge(translations.es, overrides)
