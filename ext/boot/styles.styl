@@ -74,12 +74,35 @@ p
     .video-wrapper
       max-width unquote('calc((100vh - 110px) *  1.778)')
 
+  &[data-youtube-id]
+    cursor pointer
+
+    &:hover:after
+      opacity 1
+
+    &:after
+      content ''
+      opacity .81
+      position absolute
+      left 50%
+      top 50%
+      margin -32px 0 0 -45px
+      width 90px
+      height 64px
+      transition unquote('all .3s cubic-bezier(.25, .8, .25, 1)')
+      background-size contain
+      background-position left top
+      background-repeat no-repeat
+      background-image unquote('url("/ext/play.svg")')
+
   .video-wrapper
     position relative
     max-width 888px
     max-width unquote('calc((90vh - 120px) *  1.778)')
     margin 0 auto
+    background-size cover
     background-color #222
+    background-repeat no-repeat
 
     &:before
       display block

@@ -38,7 +38,10 @@ function render (ctx) {
     }
   })
 
+
   layout.set(view.el)
+
+  loadVideo(view.el.querySelector('[data-youtube-id]'))
 
   bus.emit('page:render')
 }
@@ -50,3 +53,16 @@ class View extends view() {
   }
 }
 
+function loadVideo (video) {
+  if (!video) return
+
+  video.addEventListener('click', listener)
+  function listener () {
+    const id = video.getAttribute('data-youtube-id')
+    const iframe = document.createElement('iframe')
+    iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`
+    video.querySelector('.video-wrapper').appendChild(iframe)
+    video.removeAttribute('data-youtube-id')
+    video.removeEventListener('click', listener)
+  }
+}

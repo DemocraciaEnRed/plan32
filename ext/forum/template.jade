@@ -2,9 +2,8 @@
   .container
     h1= forum.title
     p.summary= forum.summary
-  - if(forum.extra && forum.extra.youtubeVideo)
-    .responsive-video-wide
-      .video-wrapper
-        iframe(src=forum.extra.youtubeVideo)
+  - if(forum.extra && forum.extra.youtubeVideoId)
+    .responsive-video-wide(data-youtube-id=forum.extra.youtubeVideoId)
+      .video-wrapper(style="background-image:url('https://i.ytimg.com/vi/#{forum.extra.youtubeVideoId}/maxresdefault.jpg')")
   .container
     include ../topics-cards/template
