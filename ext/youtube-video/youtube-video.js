@@ -66,9 +66,8 @@ function init (container) {
       onReady: function () {
         mute()
         container.classList.remove('loading')
-        loadMobile()
         if (window.YT.PlayerState.CUED === player.getPlayerState()) {
-
+          loadMobile()
         }
       },
       onStateChange: onPlayerStateChange
