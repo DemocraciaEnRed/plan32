@@ -12,12 +12,13 @@
 
   #banner
     position relative
-    background-color #333
+    background-color black
 
     .youtube-video
-      background-size: cover
-      background-repeat: no-repeat
-      background-image: unquote('url("/ext/home/video-loop.png")')
+      background-size contain
+      background-repeat no-repeat
+      background-position center center
+      background-image unquote('url("/ext/home/video-loop.png")')
 
       &:after
         padding-top 25%

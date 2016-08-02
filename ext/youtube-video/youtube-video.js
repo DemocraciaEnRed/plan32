@@ -22,6 +22,7 @@ function init (container) {
 
   if (!id) throw new Error('[data-youtube-video] param missing.')
 
+  container.classList.add('stopped')
   container.classList.add('loading')
   container.classList.add('muted')
 
@@ -30,9 +31,9 @@ function init (container) {
   }
 
   const video = document.createElement('div')
-  const wrapper = document.createElement('div')
-  const iframe = document.createElement('div')
-  const muteBtn = document.createElement('div')
+  const wrapper = video.cloneNode('div')
+  const iframe = video.cloneNode('div')
+  const muteBtn = video.cloneNode('div')
 
   video.classList.add('video')
   wrapper.classList.add('video-wrapper')
@@ -62,7 +63,13 @@ function init (container) {
       playlist: [id]
     },
     events: {
-      onReady: mute,
+      onReady: function () {
+        mute()
+        container.classList.remove('loading')
+        if (window.YT.PlayerState.CUED === player.getPlayerState()) {
+          container.classList.add('mobile')
+        }
+      },
       onStateChange: onPlayerStateChange
     }
   })
@@ -73,15 +80,18 @@ function init (container) {
       player.seekTo(0)
     }, Math.round(player.getDuration() * 1000) - 500)
     container.classList.remove('loading')
+    container.classList.add('playing')
   }
 
   function onStop () {
     clearInterval(loopInterval)
     container.classList.add('loading')
+    container.classList.remove('playing')
   }
 
   function onPlayerStateChange (evt) {
-    if (window.YT.PlayerState.PLAYING === player.getPlayerState()) {
+    const state = player.getPlayerState()
+    if (window.YT.PlayerState.PLAYING === state) {
       onStart()
     } else {
       onStop()

@@ -1,25 +1,26 @@
 .custom-header
-  display flex
-  justify-content center
-  align-items center
+  display none
   position fixed
   top 0
   margin-left auto
   margin-right auto
-  width 100%
   max-width 1100px
+  width 100%
   height 50px
   padding 0 20px
+  z-index 999
   box-sizing border-box
-  position relative
+
+  .ext-layout &
+    display block
 
   #mobileMenuBtn
     width 56px
-    height 44px
+    height 50px
     position absolute
     left 0
+    top 0
     padding 16px 15px 0
-    z-index 999
     cursor pointer
 
     .bar-icon
@@ -27,12 +28,13 @@
       height 3px
       margin-bottom 5px
       display block
+
   #mobileMenuChk:checked
-    & ~ ul li
+    & ~ ul
       display block
 
   ul
-    display block
+    display none
     margin 0
     background #fff
     position absolute
@@ -48,7 +50,6 @@
     padding 0
 
     li
-      display none
       margin 13px 20px 13px
       color #6d6e70
 
@@ -74,36 +75,50 @@
     img
       width 85px
 
-  .logo
+  .mobile-logo
     display block
+    margin 0 auto
+    left 0
+    height 45px
+    width 34px
+
+    img
+      margin-top 2px
+      width 34px
+
+  .logo
+    display none
     margin 0
     left 0
     height 45px
-    position absolute
-    bottom 100%
-    bottom unquote('calc(100% + 2px)')
     width 100%
+    top 0
+    height 60px
+    width auto
+
     img
       height 100%
 
-@media (min-width: 800px)
-  .custom-header
-    justify-content space-between
-    .transparencia
-      display block
-    .transparencia:last-child
-      margin 0
-      left 0
-      height auto
-      position relative
-      top 0
-
 @media (min-width: 620px)
   .custom-header
+    justify-content center
+    align-items center
     height 109px
 
-    #mobileMenuBtn
+    .ext-layout &
+      display flex
+
+    #mobileMenuBtn,
+    .mobile-logo
       display none
+
+    .logo
+      display block
+
+    .transparencia:last-child
+      position relative
+      top 0
+      height auto
 
     ul
       display flex
@@ -112,15 +127,21 @@
       position relative
       top 0
       width auto
+
       li
         display block
         margin-bottom 0
-      .logo
-        position relative
-        top 0
-        height 60px
-        width auto
+
+  @media (min-width: 800px)
+    .custom-header
+      justify-content space-between
+
+      .transparencia
+        display block
+
       .transparencia:last-child
+        margin 0
+        left 0
+        height auto
         position relative
         top 0
-        height auto

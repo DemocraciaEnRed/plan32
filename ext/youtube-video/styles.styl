@@ -1,4 +1,9 @@
 .youtube-video
+  position: relative
+  overflow: hidden
+  min-width: 368px
+  min-height: 200px
+
   &.loading
     .video,
     .video-mute-btn
@@ -8,9 +13,14 @@
   &.muted .video-mute-btn
     background-image: unquote('url("/ext/youtube-video/muted.png")')
 
-  &:hover
+  &.mobile
     .video-mute-btn
-      opacity: 1
+      display: none
+
+  &.playing
+    &:hover
+      .video-mute-btn
+        opacity: 1
 
   &:after
     content ''
