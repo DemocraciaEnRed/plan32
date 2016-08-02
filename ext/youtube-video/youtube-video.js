@@ -66,7 +66,10 @@ function init (container) {
       onReady: function () {
         mute()
         container.classList.remove('loading')
-        if (window.YT.PlayerState.CUED === player.getPlayerState()) loadMobile()
+        loadMobile()
+        if (window.YT.PlayerState.CUED === player.getPlayerState()) {
+
+        }
       },
       onStateChange: onPlayerStateChange
     }
@@ -115,7 +118,8 @@ function init (container) {
     player.destroy()
     wrapper.removeAttribute('style')
     const embed = document.createElement('iframe')
-    embed.src = `https://www.youtube.com/embed/${id}`
+    const mobileId = container.dataset.youtubeVideoMobile
+    embed.src = `https://www.youtube.com/embed/${mobileId}`
     wrapper.appendChild(embed)
   }
 }
