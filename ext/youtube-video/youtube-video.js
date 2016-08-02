@@ -66,9 +66,7 @@ function init (container) {
       onReady: function () {
         mute()
         container.classList.remove('loading')
-        if (window.YT.PlayerState.CUED === player.getPlayerState()) {
-          container.classList.add('mobile')
-        }
+        if (window.YT.PlayerState.CUED === player.getPlayerState()) loadMobile()
       },
       onStateChange: onPlayerStateChange
     }
@@ -111,4 +109,13 @@ function init (container) {
   muteBtn.addEventListener('click', function () {
     player.isMuted() ? unmute() : mute()
   })
+
+  function loadMobile () {
+    container.classList.add('mobile')
+    player.destroy()
+    wrapper.removeAttribute('style')
+    const embed = document.createElement('iframe')
+    embed.src = `https://www.youtube.com/embed/${id}`
+    wrapper.appendChild(embed)
+  }
 }
