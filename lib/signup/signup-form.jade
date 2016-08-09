@@ -32,9 +32,9 @@
         - if (tos || pp)
           p.help-block.text-center=t('signup.accepting')
           ul.text-center
-            - if (pp)
-              li: a(href='/help/terms-of-service', target='_blank')=t('help.tos.title')
             - if (tos)
+              li: a(href='/help/terms-of-service', target='_blank')=t('help.tos.title')
+            - if (pp)
               li: a(href='/help/privacy-policy', target='_blank')=t('help.pp.title')
   #signup-message.hide
     h1 Welcome
