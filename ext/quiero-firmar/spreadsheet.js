@@ -26,6 +26,8 @@ doc.useServiceAccountAuth({
     return
   }
 
+  log('Logged in to google API')
+
   doc.getInfo(function(err, info) {
     if (err) {
       log('Couldn\'t get doc info.', err)
@@ -41,17 +43,17 @@ doc.useServiceAccountAuth({
 
 function save (signature) {
   if (!loaded) {
-    log('Couldn\'t save signature to spreadsheet with dni: ', signature.dni, err)
+    log('Couldn\'t save signature to spreadsheet with dni: ', signature.data.dni, err)
     return
   }
 
   sheet.addRow(signature.get('data'), function (err) {
     if (err) {
-      log('Couldn\'t save signature to spreadsheet with dni: ', signature.dni, err)
+      log('Couldn\'t save signature to spreadsheet with dni: ', signature.data.dni, err)
       return
     }
 
-    log('Signature saved on spreadsheet for dni: ', signature.dni)
+    log('Signature saved on spreadsheet for dni: ', signature.data.dni)
 
     signature.savedOnSpreadsheet = true
     signature.save()
