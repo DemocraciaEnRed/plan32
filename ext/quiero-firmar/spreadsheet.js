@@ -3,12 +3,14 @@ var GoogleSpreadsheet = require('google-spreadsheet')
 
 var log = debug('democracyos:plan32:quiero-firmar:spreadsheet')
 
+var loaded = false
+
 var googleClientEmail = process.env.PLAN32_GOOGLE_CLIENT_EMAIL ||
-  criticalError('Missing PLAN32_GOOGLE_CLIENT_EMAIL environment variable.')
+  log('Missing PLAN32_GOOGLE_CLIENT_EMAIL environment variable.')
 var googlePrivateKey = process.env.PLAN32_GOOGLE_PRIVATE_KEY ||
-  criticalError('Missing PLAN32_GOOGLE_PRIVATE_KEY environment variable.')
+  log('Missing PLAN32_GOOGLE_PRIVATE_KEY environment variable.')
 var googleDocId = process.env.PLAN32_GOOGLE_DOC_ID ||
-  criticalError('Missing PLAN32_GOOGLE_DOC_ID environment variable.')
+  log('Missing PLAN32_GOOGLE_DOC_ID environment variable.')
 
 var doc = new GoogleSpreadsheet(googleDocId)
 var sheet
@@ -32,11 +34,17 @@ doc.useServiceAccountAuth({
 
     log('Google Spreadsheet loaded.')
     sheet = info.worksheets[0]
+    loaded = true
   })
 })
 
 
-function save (signature, cb) {
+function save (signature) {
+  if (!loaded) {
+    log('Couldn\'t save signature to spreadsheet with dni: ', signature.dni, err)
+    return
+  }
+
   sheet.addRow(signature.get('data'), function (err) {
     if (err) {
       log('Couldn\'t save signature to spreadsheet with dni: ', signature.dni, err)
@@ -48,11 +56,6 @@ function save (signature, cb) {
     signature.savedOnSpreadsheet = true
     signature.save()
   })
-}
-
-function criticalError(msg) {
-  console.error(msg)
-  process.exit(1)
 }
 
 module.exports = {
