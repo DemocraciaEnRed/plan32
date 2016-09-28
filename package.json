@@ -107,6 +107,7 @@
     "fit.js": "^1.0.0",
     "flickity": "^1.2.1",
     "get-form-data": "1.2.2",
+    "google-spreadsheet": "^2.0.3",
     "gulp": "^3.8.11",
     "gulp-add-src": "0.2.0",
     "gulp-concat-css": "2.2.0",

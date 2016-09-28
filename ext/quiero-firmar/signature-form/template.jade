@@ -1,0 +1,43 @@
+.signature-form
+  form.form(action='/quiero-firmar/sign', method='post', role='form', autovalidate='autovalidate', autosubmit='autosubmit')
+    .form-group
+      label(for='firstname') Nombres
+      input.form-control(
+        type='text',
+        name='firstname',
+        id='firstname',
+        maxlength=255,
+        required,
+        validate='required')
+    .form-group
+      label(for='lastname') Apellidos
+      input.form-control(
+        type='text',
+        name='lastname',
+        maxlength=255,
+        id='lastname',
+        required,
+        validate='required')
+    .form-group
+      label(for='dni') DNI
+      input.form-control(
+        type='text',
+        name='dni',
+        id='dni',
+        maxlength=9,
+        required,
+        validate='required',
+        data-autoformat='number')
+    .form-group
+      label(for='city') Ciudad
+      input.form-control(
+        type='text',
+        name='city',
+        id='city',
+        maxlength=255)
+    .checkbox
+      label
+        input(type='checkbox', checked, required)
+        | Acepto firmar en adhesión a plan 32
+    .form-group
+      button.btn.btn-block.btn-primary.btn-lg Firmar Ahora
