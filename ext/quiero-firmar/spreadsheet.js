@@ -4,11 +4,11 @@ var GoogleSpreadsheet = require('google-spreadsheet')
 var log = debug('democracyos:plan32:quiero-firmar:spreadsheet')
 
 var googleClientEmail = process.env.PLAN32_GOOGLE_CLIENT_EMAIL ||
-  throw new Error('Missing PLAN32_GOOGLE_CLIENT_EMAIL environment variable.')
+  criticalError('Missing PLAN32_GOOGLE_CLIENT_EMAIL environment variable.')
 var googlePrivateKey = process.env.PLAN32_GOOGLE_PRIVATE_KEY ||
-  throw new Error('Missing PLAN32_GOOGLE_PRIVATE_KEY environment variable.')
+  criticalError('Missing PLAN32_GOOGLE_PRIVATE_KEY environment variable.')
 var googleDocId = process.env.PLAN32_GOOGLE_DOC_ID ||
-  throw new Error('Missing PLAN32_GOOGLE_DOC_ID environment variable.')
+  criticalError('Missing PLAN32_GOOGLE_DOC_ID environment variable.')
 
 var doc = new GoogleSpreadsheet(googleDocId)
 var sheet
@@ -48,6 +48,11 @@ function save (signature, cb) {
     signature.savedOnSpreadsheet = true
     signature.save()
   })
+}
+
+function criticalError(msg) {
+  console.error(msg)
+  process.exit(1)
 }
 
 module.exports = {
