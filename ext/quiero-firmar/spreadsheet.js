@@ -12,34 +12,10 @@ var googlePrivateKey = process.env.PLAN32_GOOGLE_PRIVATE_KEY ||
 var googleDocId = process.env.PLAN32_GOOGLE_DOC_ID ||
   log('Missing PLAN32_GOOGLE_DOC_ID environment variable.')
 
-var doc = new GoogleSpreadsheet(googleDocId)
+var doc
 var sheet
 
-log('Logging in to google API')
-
-doc.useServiceAccountAuth({
-  client_email: googleClientEmail,
-  private_key: googlePrivateKey
-}, function loadSheet (err) {
-  if (err) {
-    log('Couldn\'t connect to Google Spreadsheet.', err)
-    return
-  }
-
-  log('Logged in to google API')
-
-  doc.getInfo(function(err, info) {
-    if (err) {
-      log('Couldn\'t get doc info.', err)
-      return
-    }
-
-    log('Google Spreadsheet loaded.')
-    sheet = info.worksheets[0]
-    loaded = true
-  })
-})
-
+initiliaze()
 
 function save (signature) {
   if (!loaded) {
@@ -57,6 +33,40 @@ function save (signature) {
 
     signature.savedOnSpreadsheet = true
     signature.save()
+  })
+}
+
+function initiliaze () {
+  if (!googleDocId) {
+    log('Not loading google spreadsheets')
+    return
+  }
+
+  doc = new GoogleSpreadsheet(googleDocId)
+
+  log('Logging in to google API')
+
+  doc.useServiceAccountAuth({
+    client_email: googleClientEmail,
+    private_key: googlePrivateKey
+  }, function loadSheet (err) {
+    if (err) {
+      log('Couldn\'t connect to Google Spreadsheet.', err)
+      return
+    }
+
+    log('Logged in to google API')
+
+    doc.getInfo(function(err, info) {
+      if (err) {
+        log('Couldn\'t get doc info.', err)
+        return
+      }
+
+      log('Google Spreadsheet loaded.')
+      sheet = info.worksheets[0]
+      loaded = true
+    })
   })
 }
 
