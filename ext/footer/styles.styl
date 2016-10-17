@@ -1,27 +1,67 @@
-footer
+.footer-wrapper
   background #fff
-  text-align center
-  padding 32px 15px 15px
-  .logo
-    width 46px
-  .transparencia
-    width 76px
-  .proyde
-    margin-top 9px
-  .dudas,
-  a
-    font-size 12px
-  .dudas
-    margin 0
-  div
-    margin-top 21px
+
+  .wrapper
+    max-width 970px
+    padding-right 15px
+    padding-left 15px
+    margin-right auto
+    margin-left auto
+
+  footer
     display flex
-    align-items center
-    justify-content center
+    justify-content space-between
+    flex-wrap wrap
+
+    & > *
+      margin 20px
+
+    .author
+      display flex
+      align-items center
+      justify-content space-between
+      flex-wrap wrap
+      margin-bottom 15px
+
+      & > *
+        margin 0 10px
+
+      .logo
+        height 60px
+
+      .transparencia
+        height 40px
+
+      p
+        font-size .7em
+
+    .sponsors
+      display flex
+      align-items center
+      justify-content space-between
+      flex-wrap wrap
+
+      & > *
+        margin 0 10px
+
+      img
+        height 60px
+
+  .footer-meta-wrapper
+    background-color #333
+
+  .footer-meta
+    display flex
+    justify-content space-between
+    flex-wrap wrap
+    padding 20px
+    color #fff
+    font-size .7em
+
     p
-      text-transform uppercase
-      display inline-block
-      font-size 12px
-      margin 0 -6px 0 0
-    .der
-      width 150px
+      font-size inherit
+      margin 0
+
+    a
+      font-size inherit
+      color inherit
