@@ -14,12 +14,13 @@ var googleDocId = process.env.PLAN32_GOOGLE_DOC_ID ||
 
 var doc
 var sheet
+var sheetCount
 
 initiliaze()
 
 function save (signature) {
   if (!loaded) {
-    log('Couldn\'t save signature to spreadsheet with dni: ', signature.data.dni, err)
+    log('Couldn\'t save signature to spreadsheet with dni: ', signature.data.dni)
     return
   }
 
@@ -33,6 +34,31 @@ function save (signature) {
 
     signature.savedOnSpreadsheet = true
     signature.save()
+  })
+}
+
+
+var countCache = 0
+var countCacheTime = 0
+var countCacheExpiries = 1 * 60 * 1000
+function getFirmasCount (cb) {
+  if (Date.now() - countCacheTime < countCacheExpiries) {
+    return cb(null, countCache)
+  }
+
+  sheetCount.getCells({
+    'min-row': 2,
+    'max-row': 2,
+    'min-col': 3,
+    'max-col': 3
+  }, function (err, cells) {
+    if (err) return cb(err)
+    if (!cells || !cells.length) return cb(new Error('Cell not found.'))
+
+    countCache = cells[0].numericValue
+    countCacheTime = Date.now()
+
+    cb(null, countCache)
   })
 }
 
@@ -65,11 +91,13 @@ function initiliaze () {
 
       log('Google Spreadsheet loaded.')
       sheet = info.worksheets[0]
+      sheetCount = info.worksheets[1]
       loaded = true
     })
   })
 }
 
 module.exports = {
-  save: save
+  save: save,
+  getFirmasCount: getFirmasCount
 }

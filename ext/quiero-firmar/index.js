@@ -11,7 +11,7 @@ app.get('/quiero-firmar', require('lib/layout'))
 
 app.post('/quiero-firmar/sign',
   checkUniqueSignature,
-  function saveSignature (req, res, next) {
+  function saveSignature (req, res) {
     Signature.create({
       data: req.body
     }, function (err, signature) {
@@ -20,6 +20,21 @@ app.post('/quiero-firmar/sign',
       res.json(200, {status: 200})
 
       spreadsheet.save(signature)
+    })
+  }
+)
+
+app.get('/quiero-firmar/count', function getFirmasCount (req, res) {
+    spreadsheet.getFirmasCount(function (err, count) {
+      if (err) {
+        log(err)
+        return res.status(500).end()
+      }
+
+      res.json(200, {
+        status: 200,
+        count: count
+      })
     })
   }
 )
